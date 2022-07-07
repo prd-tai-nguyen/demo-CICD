@@ -30,9 +30,10 @@ jobs:
     
     steps:
       - name: Deploy to IIS
-        uses: 'im-open/iis-service-action@v1.0.5'
+        uses: 'im-open/iis-service-action'
         with: 
-          action: Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
           server: 20.27.60.177
-          service-account-id: nht
-          service-account-password: Tai147258369
+          username: nht
+          password: Tai147258369
+          local-dir: ./DemoCICD/bin/Release/net6.0
+          server-dir: C:/inetpub/wwwroot/DemoCICD

@@ -26,9 +26,12 @@ jobs:
   deploy-server-01:
     needs: build
     name: Deploy 01
-    runs-on: self-hosted
+    runs-on: windows-latest
     
     steps:
       - name: Deploy to IIS
-        run: |
-          Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
+        with: 
+          action: Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
+          server: 20.27.60.177
+          service-account-id: nht
+          service-account-password: Tai147258369

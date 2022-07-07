@@ -30,7 +30,7 @@ jobs:
     
     steps:
       - name: Deploy to IIS
-        uses: im-open/iis-service-action@1.0
+        uses: actions/setup-dotnet@v2
         with: 
           server: 20.27.60.177
           username: nht

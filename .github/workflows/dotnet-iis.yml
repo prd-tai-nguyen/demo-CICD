@@ -22,9 +22,9 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish -c Release -o DemoCICD .\DemoCICD
+      run: dotnet publish -c Release -o DemoCICD .\
     - name: Deploy to IIS
       run: |
         iisreset /stop
-        Copy-Item ./DemoCICD/* C:/inetpub/wwwroot/DemoCICD -Recurse -Force
+        Copy-Item ./* C:/inetpub/wwwroot/ -Recurse -Force
         iisreset /start

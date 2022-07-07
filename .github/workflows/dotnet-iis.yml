@@ -30,8 +30,8 @@ jobs:
     
     steps:
       - name: Deploy to IIS
-        uses: actions/setup-dotnet@v2
-        with: 
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
           server: 20.27.60.177
           username: nht
           password: Tai147258369

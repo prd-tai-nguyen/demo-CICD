@@ -36,4 +36,4 @@ jobs:
           username: nht
           password: Tai147258369
           local-dir: ./DemoCICD/bin/Release/net6.0/
-          server-dir: C:/inetpub/wwwroot/DemoCICD
+          server-dir: C:/inetpub/wwwroot/DemoCICD/

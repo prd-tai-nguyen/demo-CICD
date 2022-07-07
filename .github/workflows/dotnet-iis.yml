@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: self-hosted
 
     steps:
@@ -32,6 +31,4 @@ jobs:
     steps:
       - name: Deploy to IIS
         run: |
-          iisreset /stop
           Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
-          iisreset /start  

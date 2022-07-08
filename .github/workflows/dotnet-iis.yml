@@ -20,6 +20,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Publish
       run: dotnet publish -c Release -o ./release DemoCICD.sln
+    - name: Publish1
+      working-directory: .
+      run: dir /s /b /o:gn
+      
 
   deploy-server-01:
     needs: build

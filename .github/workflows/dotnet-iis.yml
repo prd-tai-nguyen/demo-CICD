@@ -29,4 +29,4 @@ jobs:
     steps:
       - name: Deploy to IIS
         run: |
-          Copy-Item ./release/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
+          Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force

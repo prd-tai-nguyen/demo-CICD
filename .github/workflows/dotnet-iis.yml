@@ -30,5 +30,3 @@ jobs:
       - name: Deploy to IIS
         run: |
           Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
-      - name: Run
-        run: dotnet ./DemoCICD/bin/Release/net6.0/DemoCICD.dll

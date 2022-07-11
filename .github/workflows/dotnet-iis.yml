@@ -19,7 +19,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish -c Release -o DemoCICD .\DemoCICD
+      run: dotnet publish -c Release -o ./DemoCICD
 
   deploy-server-01:
     needs: build

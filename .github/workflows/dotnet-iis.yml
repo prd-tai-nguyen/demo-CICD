@@ -18,8 +18,10 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+      name: Test with the dotnet CLI
+  run: dotnet test
     - name: Publish
-      run: dotnet publish -c Release -o ./DemoCICD DemoCICD.sln -r win10-x64 --self-contained true
+      run: dotnet publish -c Release -o ./DemoCICD
 
   deploy-server-01:
     needs: build
@@ -30,3 +32,5 @@ jobs:
       - name: Deploy to IIS
         run: |
           Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
+      - name: Run
+        run: dotnet run ./DemoCICD/bin/Release/net6.0/DemoCICD.dll

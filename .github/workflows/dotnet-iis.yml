@@ -14,7 +14,7 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
+    - name: Restore
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
@@ -27,6 +27,8 @@ jobs:
     runs-on: self-hosted
     
     steps:
-      - name: Deploy to IIS
+      - name: Deploy
+        run: Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
+      - name: Run
         run: |
-          Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
+          dotnet C:/inetpub/wwwroot/DemoCICD/bin/Release/net6.0/win10-x64/DemoCICD.dll

@@ -19,7 +19,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish -c Release -o ./DemoCICD DemoCICD.sln --self-contained true
+      run: dotnet publish -c Release -o ./DemoCICD DemoCICD.sln -r win10-x64 --self-contained true
 
   deploy-server-01:
     needs: build

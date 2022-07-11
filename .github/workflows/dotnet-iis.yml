@@ -28,4 +28,4 @@ jobs:
     
     steps:
       - name: Deploy
-        run: Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
+        run: Copy-Item ./DemoCICD C:/inetpub/wwwroot/DemoCICD -Recurse -Force

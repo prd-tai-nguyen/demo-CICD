@@ -19,7 +19,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish -c Release -o ./DemoCICD -p:PublishReadyToRun=true
+      run: dotnet publish -c Release -o DemoCICD .\DemoCICD
 
   deploy-server-01:
     needs: build
@@ -29,6 +29,3 @@ jobs:
     steps:
       - name: Deploy
         run: Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
-      - name: Run
-        run: |
-          dotnet C://inetpub/wwwroot/DemoCICD/net6.0/win10-x64/DemoCICD.dll

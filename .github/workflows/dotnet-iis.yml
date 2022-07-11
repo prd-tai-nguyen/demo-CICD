@@ -31,4 +31,4 @@ jobs:
         run: Copy-Item ./DemoCICD/bin/Release/net6.0 C:/inetpub/wwwroot/DemoCICD -Recurse -Force
       - name: Run
         run: |
-          dotnet C:/inetpub/wwwroot/DemoCICD/bin/Release/net6.0/win10-x64/DemoCICD.dll
+          dotnet C://inetpub/wwwroot/DemoCICD/net6.0/win10-x64/DemoCICD.dll

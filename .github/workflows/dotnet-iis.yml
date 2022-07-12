@@ -1,0 +1,31 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore
+      run: dotnet restore
+    - name: Build
+      run: dotnet build -c Release --no-restore
+    - name: Publish
+      run: dotnet publish -c Release -o DemoCICD .\DemoCICD
+
+  deploy-server-01:
+    needs: build
+    name: Deploy 01
+    runs-on: self-hosted
+    
+    steps:
+      - name: Deploy
+        run: Copy-Item ./DemoCICD/* C:/inetpub/wwwroot/vs1 -Recurse -Force

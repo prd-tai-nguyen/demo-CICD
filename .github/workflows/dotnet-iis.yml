@@ -24,7 +24,7 @@ jobs:
   deploy-server-01:
     needs: build
     name: Deploy 01
-    runs-on: self-hosted
+    runs-on: nht
     
     steps:
       - name: Deploy

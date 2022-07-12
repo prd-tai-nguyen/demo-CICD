@@ -28,4 +28,7 @@ jobs:
     
     steps:
       - name: Deploy
-        run: Copy-Item ./DemoCICD/* C:/inetpub/wwwroot/vs1 -Recurse -Force
+        run: |
+          iisreset /stop
+          Copy-Item ./DemoCICD/* C:/inetpub/wwwroot/vs1 -Recurse -Force
+          iisreset /start

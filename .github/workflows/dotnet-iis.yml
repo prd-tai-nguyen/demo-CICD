@@ -18,5 +18,5 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build -c Release --no-restore
-    - name: Publish
+    - name: Publish Server 1
       run: dotnet publish -c Release /p:PublishProfile=IISProfile /p:Password=Tai147258369

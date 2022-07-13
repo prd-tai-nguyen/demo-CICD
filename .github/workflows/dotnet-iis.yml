@@ -19,16 +19,4 @@ jobs:
     - name: Build
       run: dotnet build -c Release --no-restore
     - name: Publish
-      run: dotnet publish -c Release -o DemoCICD .\DemoCICD
-
-  deploy-server-01:
-    needs: build
-    name: Deploy 01
-    runs-on: server1
-    
-    steps:
-      - name: Deploy
-        run: |
-          iisreset /stop
-          Copy-Item ./DemoCICD/* C:/inetpub/wwwroot/vs -Recurse -Force
-          iisreset /start
+      run: dotnet publish -c Release /p:PublishProfile=IISProfile /p:Password=Tai147258369

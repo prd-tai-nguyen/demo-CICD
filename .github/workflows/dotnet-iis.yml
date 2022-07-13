@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    environment: PROD
 
     steps:
     - uses: actions/checkout@v3
@@ -19,4 +20,4 @@ jobs:
     - name: Build
       run: dotnet build -c Release --no-restore
     - name: Publish Server 1
-      run: dotnet publish -c Release /p:PublishProfile=IISProfile /p:Password=Tai147258369
+      run: dotnet publish -c Release /p:PublishProfile=IISProfile /p:Password=${{ secrets.PASSWORD_SERVER1 }} | echo ${{ secrets.PASSWORD_SERVER1 }}

@@ -20,3 +20,5 @@ jobs:
       run: dotnet build -c Release --no-restore
     - name: Publish Server 1
       run: dotnet publish -c Release /p:PublishProfile=IISProfile /p:Password=${{ secrets.PASSWORD_SERVER1 }}
+    - name: Publish Server 2
+      run: dotnet publish -c Release /p:PublishProfile=IISProfile1 /p:Password=${{ secrets.PASSWORD_SERVER1 }}
